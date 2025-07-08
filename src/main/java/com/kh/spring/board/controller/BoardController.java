@@ -5,10 +5,12 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.spring.board.model.service.BoardService;
 
@@ -53,8 +55,16 @@ public class BoardController {
 	//	- {boardCode}는 N,P,C,L,D...등 동적으로 바뀌는 모든 보드코드값을 저장할 수 있다.
 	//	- 선언한 동적 경로 변수는 @PathVariable어노테이션으로 추출하여 사용할 수 있다.
 	//	- @PathVariable로 자원경로 추출시, 추출한 변수는 model영역에 자동으로 추가된다.
-	public String selectList() {
+	public String selectList(
+			@PathVariable("boardCode") String boardCode,
+			// currentPage
+			//	- 현재 요청한 페이지 번호.(페이징 처리에 필요한 변수)
+			//	- 기본값은 1로 처리하여, 값을 전달하지 않은 경우 항상 1페이지로 요청하게 처리
+			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage
+			
+			) {
 		
+		return "";
 	}
 	
 	
